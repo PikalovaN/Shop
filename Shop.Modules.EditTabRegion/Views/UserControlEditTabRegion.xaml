@@ -1,0 +1,178 @@
+<UserControl x:Class="Shop.Modules.EditTabRegion.Views.UserControlEditTabRegion"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             mc:Ignorable="d" 
+             d:DesignHeight="650" d:DesignWidth="1000">
+
+    <Grid x:Name="myTypy">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="48*"/>
+            <RowDefinition Height="7*"/>
+        </Grid.RowDefinitions>
+        <DataGrid ItemsSource="{Binding Products}" AutoGenerateColumns="False" Margin="0,0,0,412">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="BookId" Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="Наименование" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Возрастное ограничение" Binding="{Binding Age}"/>
+                <DataGridTextColumn Header="Год" Binding="{Binding Year}"/>
+                <DataGridTextColumn Header="Производитель" Binding="{Binding Manufacturer}"/>
+                <DataGridTextColumn Header="Цена (руб.)" Binding="{Binding Price}"/>
+                <DataGridTextColumn Header="В заказе" Binding="{Binding Count}"/>
+                <DataGridTextColumn Header="Пришло" Binding="{Binding In}"/>
+                <DataGridTextColumn Header="Выдано" Binding="{Binding Out}"/>
+                <DataGridTextColumn Header="Тематика" Binding="{Binding Subject}"/>
+                <DataGridTextColumn Header="Категория" Binding="{Binding Category}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid ItemsSource="{Binding Clients}" AutoGenerateColumns="False" Margin="0,185,0,227">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID клиента" Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="     Фамилия    " Binding="{Binding LName}"/>
+                <DataGridTextColumn Header="     Имя      " Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="     Отчество     " Binding="{Binding Otch}"/>
+                <DataGridTextColumn Header="    Адрес эл. почты    " Binding="{Binding Email}"/>
+                <DataGridTextColumn Header="     Номер телефона  " Binding="{Binding Phone}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button  Command="{Binding QueryCommand}" Cursor="Hand" Margin="855,512,50,10">Запрос</Button>
+        <ComboBox Text="{Binding CurrentTable}" HorizontalAlignment="Left" Margin="18,479,0,0" VerticalAlignment="Top" Width="120">
+            <ComboBoxItem Content="Товары"></ComboBoxItem>
+            <ComboBoxItem Content="Клиенты"></ComboBoxItem>
+            <ComboBoxItem Content="Заказы"></ComboBoxItem>
+        </ComboBox>
+        <ComboBox Text="{Binding CurrentField}" ItemsSource="{Binding Fields}" HorizontalAlignment="Left" Margin="174,479,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBox Text="{Binding Value}" x:Name="P4_Копировать" Margin="350,480,568,70" Foreground="Black" Cursor="Pen" RenderTransformOrigin="0.63,4.167">
+
+        </TextBox>
+
+
+
+
+
+
+
+        <!--<Button Command="{Binding UpdateProductCommand}"  Cursor="Hand" Content="Изменить" Margin="895,455,10,48" Grid.RowSpan="2"/>
+        <TextBox Text="{Binding product.Category}" x:Name="P1"  Foreground="Black" Margin="0,42,920,10" Grid.Row="1" >
+            <TextBox.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFECF9FF"/>
+                    <GradientStop Color="#FF68C8DA" Offset="1"/>
+                    <GradientStop Color="#FFE5F1F7" Offset="0.245"/>
+                    <GradientStop Color="#FFD3EBF3" Offset="0.466"/>
+                </LinearGradientBrush>
+            </TextBox.Background>
+        </TextBox>
+        <TextBox Text="{Binding product.Subject}" x:Name="P4" Margin="0,454,919,2" Foreground="Black" Cursor="Pen" RenderTransformOrigin="0.63,4.167">
+            <TextBox.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFECF9FF"/>
+                    <GradientStop Color="#FF68C8DA" Offset="1"/>
+                    <GradientStop Color="#FFE5F1F7" Offset="0.245"/>
+                    <GradientStop Color="#FFD3EBF3" Offset="0.466"/>
+                </LinearGradientBrush>
+            </TextBox.Background>
+        </TextBox>
+        <TextBox Text="{Binding product.Name}" x:Name="P1_Копировать1" Margin="172,455,727,2" Foreground="Black" Cursor="Pen">
+            <TextBox.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFECF9FF"/>
+                    <GradientStop Color="#FF68C8DA" Offset="1"/>
+                    <GradientStop Color="#FFE5F1F7" Offset="0.245"/>
+                    <GradientStop Color="#FFD3EBF3" Offset="0.466"/>
+                </LinearGradientBrush>
+            </TextBox.Background>
+        </TextBox>
+        <TextBox Text="{Binding product.Year}" x:Name="P1_Копировать3" Margin="98,41,840,10" Foreground="Black" Cursor="Pen" RenderTransformOrigin="0.435,0.526" Grid.Row="1">
+            <TextBox.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFECF9FF"/>
+                    <GradientStop Color="#FF68C8DA" Offset="1"/>
+                    <GradientStop Color="#FFE5F1F7" Offset="0.245"/>
+                    <GradientStop Color="#FFD3EBF3" Offset="0.466"/>
+                </LinearGradientBrush>
+            </TextBox.Background>
+        </TextBox>
+        <TextBox Text="{Binding product.Id}" x:Name="P1_Копировать" Margin="300,455,615,2" Foreground="Black" Cursor="Pen" RenderTransformOrigin="0.5,0.5">
+            <TextBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBox.RenderTransform>
+            <TextBox.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFECF9FF"/>
+                    <GradientStop Color="#FF68C8DA" Offset="1"/>
+                    <GradientStop Color="#FFE5F1F7" Offset="0.245"/>
+                    <GradientStop Color="#FFD3EBF3" Offset="0.466"/>
+                </LinearGradientBrush>
+            </TextBox.Background>
+
+        </TextBox>
+        <TextBox Text="{Binding product.Price}" x:Name="P1_Копировать4" Foreground="Black" Cursor="Pen" Margin="300,41,615,10" RenderTransformOrigin="0.471,0.484" Grid.Row="1">
+            <TextBox.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFECF9FF"/>
+                    <GradientStop Color="#FF68C8DA" Offset="1"/>
+                    <GradientStop Color="#FFE5F1F7" Offset="0.245"/>
+                    <GradientStop Color="#FFD3EBF3" Offset="0.466"/>
+                </LinearGradientBrush>
+            </TextBox.Background>
+
+        </TextBox>
+        <TextBox Text="{Binding product.Count}" x:Name="P1_Копировать5" Foreground="Black" Cursor="Pen" Margin="560,14,404,38" RenderTransformOrigin="0.563,0.65" Grid.Row="1">
+            <TextBox.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFECF9FF"/>
+                    <GradientStop Color="#FF68C8DA" Offset="1"/>
+                    <GradientStop Color="#FFE5F1F7" Offset="0.245"/>
+                    <GradientStop Color="#FFD3EBF3" Offset="0.466"/>
+                </LinearGradientBrush>
+            </TextBox.Background>
+        </TextBox>
+        <Button Command="{Binding AddProductCommand}" Margin="895,22,10,10" Cursor="Hand" Grid.Row="1">Добавить</Button>
+        <TextBox Text="{Binding product.In}" x:Name="P1_Копировать6" Margin="415,14,548,37" Foreground="Black" Cursor="Pen" Grid.Row="1">
+            <TextBox.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFECF9FF"/>
+                    <GradientStop Color="#FF68C8DA" Offset="1"/>
+                    <GradientStop Color="#FFE5F1F7" Offset="0.245"/>
+                    <GradientStop Color="#FFD3EBF3" Offset="0.466"/>
+                </LinearGradientBrush>
+            </TextBox.Background>
+        </TextBox>
+        <Button Command="{Binding RemoveProductCommand}" Margin="895,410,10,26" Cursor="Hand" Content="Удалить"/>
+        <Label Content="Тематика" HorizontalAlignment="Left" Margin="5,423,0,0" VerticalAlignment="Top"/>
+        <Label Content="Категория" HorizontalAlignment="Left" Margin="0,4,0,0" VerticalAlignment="Top" Height="39" Grid.Row="1"/>
+        <Label Content="Год" HorizontalAlignment="Left" Margin="114,11,0,0" VerticalAlignment="Top" Grid.Row="1"/>
+        <Label Content="BookId" HorizontalAlignment="Left" Margin="304,423,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.53,0.655"/>
+        <Label Content="Имя" HorizontalAlignment="Left" Margin="222,420,0,0" VerticalAlignment="Top"/>
+        <Label Content="В заказе" HorizontalAlignment="Left" Margin="550,460,0,0" VerticalAlignment="Top" Grid.RowSpan="2"/>
+        <Label Content="Цена" HorizontalAlignment="Left" Margin="304,6,0,0" VerticalAlignment="Top" Grid.Row="1"/>
+        <Label Content="Выдано" HorizontalAlignment="Center" Margin="0,461,0,0" VerticalAlignment="Top" Grid.RowSpan="2"/>
+        <Label Content="Возр. ограничение" HorizontalAlignment="Left" Margin="165,3,0,0" VerticalAlignment="Top" Grid.Row="1"/>
+        <Label Content="Производитель" HorizontalAlignment="Left" Margin="81,419,0,0" VerticalAlignment="Top"/>
+        <TextBox Text="{Binding product.Out}" x:Name="P1_Копировать7" Margin="482,15,482,37" Foreground="Black" Cursor="Pen" Grid.Row="1">
+            <TextBox.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFECF9FF"/>
+                    <GradientStop Color="#FF68C8DA" Offset="1"/>
+                    <GradientStop Color="#FFE5F1F7" Offset="0.245"/>
+                    <GradientStop Color="#FFD3EBF3" Offset="0.466"/>
+                </LinearGradientBrush>
+            </TextBox.Background>
+        </TextBox>
+        <Button Grid.Row="0" Content="Обновить таблицу" Command="{Binding LoadProductsCommand}" Margin="0,0,0,360"/>
+        <Label Content="Пришло" HorizontalAlignment="Left" Margin="402,461,0,0" VerticalAlignment="Top" Grid.RowSpan="2"/>
+        <ComboBox ItemsSource="{Binding Manufacturers}" Text="Производитель" HorizontalAlignment="Left" Height="21" Margin="94,466,0,0" VerticalAlignment="Top" Width="66" SelectedItem="{Binding product.Manufacturer}" Grid.RowSpan="2"/>
+        <ComboBox ItemsSource="{Binding Ages}" Text="Возраст"  HorizontalAlignment="Left" Height="27" Margin="181,35,0,0" VerticalAlignment="Top" Width="83" SelectedItem="{Binding product.Age}" Grid.Row="1"/>-->
+
+
+    </Grid>
+</UserControl>

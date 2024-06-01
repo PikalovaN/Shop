@@ -20,7 +20,7 @@ namespace Shop.Shell.ViewModels
         /// <summary>
         /// Backing field for property DisplayName
         /// </summary>
-        private string _displayName = "Магазин";
+        private string _displayName = "Книжный Мир";
 
         #endregion
         private IEventAggregator _eventAggregator;

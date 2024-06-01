@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Shop.Modules.ProductsTabRegion.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="650" d:DesignWidth="1000">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -14,10 +14,12 @@
 
         <Button Grid.Row="0" Content="Обновить таблицу" Command="{Binding LoadProductsCommand}"/>
 
-        <DataGrid Grid.Row="1" ItemsSource="{Binding Products}" AutoGenerateColumns="False">
+        <DataGrid Grid.Row="1" ItemsSource="{Binding Products}" AutoGenerateColumns="False" Margin="0,0,0,390">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Код" Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="BookId" Binding="{Binding Id}"/>
                 <DataGridTextColumn Header="Наименование" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Тематика" Binding="{Binding Subject}"/>
+                <DataGridTextColumn Header="Категория" Binding="{Binding Category}"/>
                 <DataGridTextColumn Header="Возрастное ограничение" Binding="{Binding Age}"/>
                 <DataGridTextColumn Header="Год" Binding="{Binding Year}"/>
                 <DataGridTextColumn Header="Производитель" Binding="{Binding Manufacturer}"/>
@@ -25,9 +27,37 @@
                 <DataGridTextColumn Header="В заказе" Binding="{Binding Count}"/>
                 <DataGridTextColumn Header="Пришло" Binding="{Binding In}"/>
                 <DataGridTextColumn Header="Выдано" Binding="{Binding Out}"/>
-                <DataGridTextColumn Header="Тематика" Binding="{Binding Subject}"/>
-                <DataGridTextColumn Header="Категория" Binding="{Binding Category}"/>
+
             </DataGrid.Columns>
         </DataGrid>
+        <Grid Grid.Row="1" Margin="0,0,-45,0">
+            <TextBox Text="{Binding product.Name}" HorizontalAlignment="Left" Margin="83,376,0,0"  VerticalAlignment="Top" Width="100" Height="24"/>
+            <TextBox Text="{Binding product.Id}" HorizontalAlignment="Left" Margin="10,376,0,0"  VerticalAlignment="Top" Width="65" Height="24"/>
+            <TextBox Text="{Binding product.Price}" HorizontalAlignment="Left" Margin="600,376,0,0"  VerticalAlignment="Top" Width="63" Height="24" RenderTransformOrigin="0.5,0.558"/>
+            <TextBox Text="{Binding product.Count}" HorizontalAlignment="Left" Margin="683,376,0,0"  VerticalAlignment="Top" Width="32" Height="24"/>
+            <TextBox Text="{Binding product.In}" HorizontalAlignment="Left" Margin="748,376,0,0"  VerticalAlignment="Top" Width="32" Height="24"/>
+            <TextBox Text="{Binding product.Out}" HorizontalAlignment="Left" Margin="818,376,0,0"  VerticalAlignment="Top" Width="32" Height="24"/>
+            <Button Command="{Binding AddProductCommand}" Margin="875,360,90,230" Width="80" Height="40">Добавить</Button>
+            <Button Command="{Binding UpdateProductCommand}"   Content="Изменить" Width="80" Height="40" Margin="1075,360,-110,230"   />
+            <Button Command="{Binding RemoveProductCommand}" Width="80" Height="40"  Content="Удалить" Margin="975,360,-10,230"  />
+            <Label Content="BookId" HorizontalAlignment="Left" Margin="19,345,0,0" VerticalAlignment="Top"/>
+            <Label Content="Наименование" HorizontalAlignment="Left" Margin="87,345,0,0" VerticalAlignment="Top"/>
+            <Label Content="Тематика" HorizontalAlignment="Left" Margin="202,345,0,0" VerticalAlignment="Top"/>
+            <Label Content="Категория" HorizontalAlignment="Left" Margin="291,345,0,0" VerticalAlignment="Top"/>
+            <Label Content="Воз.огр." HorizontalAlignment="Left" Margin="377,345,0,0" VerticalAlignment="Top"/>
+            <Label Content="Год" HorizontalAlignment="Left" Margin="461,345,0,0" VerticalAlignment="Top"/>
+            <Label Content="Производитель" HorizontalAlignment="Left" Margin="501,345,0,0" VerticalAlignment="Top"/>
+            <Label Content="Цена" HorizontalAlignment="Left" Margin="612,345,0,0" VerticalAlignment="Top"/>
+            <Label Content="В заказе" HorizontalAlignment="Left" Margin="669,345,0,0" VerticalAlignment="Top"/>
+            <Label Content="Пришло" HorizontalAlignment="Left" Margin="736,345,0,0" VerticalAlignment="Top"/>
+            <Label Content="Выдано" HorizontalAlignment="Left" Margin="808,345,0,0" VerticalAlignment="Top"/>
+            <ComboBox ItemsSource="{Binding Ages}" Text="Возраст"  HorizontalAlignment="Left" Height="24" Margin="380,376,0,0" VerticalAlignment="Top" Width="52" SelectedItem="{Binding product.Age}"/>
+            <ComboBox ItemsSource="{Binding Manufacturers}" Text="Производитель" HorizontalAlignment="Left" Height="24" Margin="517,376,0,0" VerticalAlignment="Top" Width="63" SelectedItem="{Binding product.Manufacturer}"/>
+            <ComboBox ItemsSource="{Binding Years}" Text="Возраст"  HorizontalAlignment="Left" Height="24" Margin="450,376,0,0" VerticalAlignment="Top" Width="52" SelectedItem="{Binding product.Year}"/>
+            <ComboBox ItemsSource="{Binding Categorys}" HorizontalAlignment="Left" Height="24" Margin="285,376,0,0" VerticalAlignment="Top" Width="78" SelectedItem="{Binding product.Category}" />
+            <ComboBox ItemsSource="{Binding Subjects}" VerticalAlignment="Top" Width="78" HorizontalAlignment="Left" Height="24"  SelectedItem="{Binding product.Subject}" Margin="191,376,0,0"/>
+            <Label Content="Работа над товарами в заказах" HorizontalAlignment="Left" Margin="5,319,0,0" VerticalAlignment="Top"/>
+
+        </Grid>
     </Grid>
 </UserControl>

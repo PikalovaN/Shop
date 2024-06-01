@@ -4,19 +4,38 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="650" d:DesignWidth="1000">
     <Grid>
-        <Button Grid.Row="0" Content="Обновить таблицу" Command="{Binding LoadClientsCommand}"/>
+        <Button Grid.Row="0" Content="Обновить таблицу" Command="{Binding LoadClientsCommand}" Margin="0,0,0,620"/>
 
-        <DataGrid Grid.Row="1" ItemsSource="{Binding Clients}" AutoGenerateColumns="False">
+        <DataGrid Grid.Row="1" ItemsSource="{Binding Clients}" AutoGenerateColumns="False" Margin="0,30,0,455">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Код" Binding="{Binding Id}"/>
-                <DataGridTextColumn Header="Фамилия" Binding="{Binding LName}"/>
-                <DataGridTextColumn Header="Имя" Binding="{Binding Name}"/>
-                <DataGridTextColumn Header="Отчество" Binding="{Binding Otch}"/>
-                <DataGridTextColumn Header="Адрес эл. почты" Binding="{Binding Email}"/>
-                <DataGridTextColumn Header="Номер телефона" Binding="{Binding Phone}"/>
+                <DataGridTextColumn Header="ID клиента" Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="     Фамилия    " Binding="{Binding LName}"/>
+                <DataGridTextColumn Header="     Имя      " Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="     Отчество     " Binding="{Binding Otch}"/>
+                <DataGridTextColumn Header="    Адрес эл. почты    " Binding="{Binding Email}"/>
+                <DataGridTextColumn Header="     Номер телефона  " Binding="{Binding Phone}"/>
             </DataGrid.Columns>
         </DataGrid>
+
+        <Grid Grid.Row="2" Margin="0,225,0,0">
+            <Button Command="{Binding AddClientsCommand}" Margin="10,90,910,305" Width="80" Height="30" >Добавить</Button>
+            <Button Command="{Binding UpdateClientsCommand}"   Content="Изменить" Width="80" Height="30"  Margin="100,90,820,305" />
+            <Button Command="{Binding RemoveClientsCommand}" Width="80" Height="30"  Content="Удалить" Margin="195,90,725,305" />
+
+            <TextBox Text="{Binding client.Id}" HorizontalAlignment="Left" Margin="10,35,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="70" Height="30"/>
+            <TextBox Text="{Binding client.LName}" HorizontalAlignment="Left" Margin="100,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="30"/>
+            <TextBox Text="{Binding client.Name}" HorizontalAlignment="Left" Margin="235,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="30"/>
+            <TextBox Text="{Binding client.Otch}" HorizontalAlignment="Left" Margin="370,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="30"/>
+            <TextBox Text="{Binding client.Email}" HorizontalAlignment="Left" Margin="515,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="30"/>
+            <TextBox Text="{Binding client.Phone}" HorizontalAlignment="Left" Margin="660,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="30"/>
+
+
+
+
+
+
+        </Grid>
     </Grid>
 </UserControl>

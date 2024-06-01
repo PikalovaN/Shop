@@ -16,6 +16,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Shop.Core\Shop.Core.csproj" />
     <ProjectReference Include="..\Shop.Modules.ClientsTabRegion\Shop.Modules.ClientsTabRegion.csproj" />
+    <ProjectReference Include="..\Shop.Modules.EditTabRegion\Shop.Modules.EditTabRegion.csproj" />
     <ProjectReference Include="..\Shop.Modules.OrdersTabRegion\Shop.Modules.OrdersTabRegion.csproj" />
     <ProjectReference Include="..\Shop.Modules.ProductsTabRegion\Shop.Modules.ProductsTabRegion.csproj" />
   </ItemGroup>

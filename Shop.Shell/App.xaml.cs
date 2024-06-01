@@ -3,6 +3,7 @@ using Prism.Modularity;
 using Prism.Mvvm;
 using Prism.Unity;
 using Shop.Modules.ClientsTabRegion;
+using Shop.Modules.EditTabRegion;
 using Shop.Modules.OrdersTabRegion;
 using Shop.Modules.ProductsTabRegion;
 using Shop.Shell.ViewModels;
@@ -26,6 +27,7 @@ namespace Shop.Shell
             moduleCatalog.AddModule<ProductsTabRegionModule>();
             moduleCatalog.AddModule<OrdersTabRegionModule>();
             moduleCatalog.AddModule<ClientsTabRegionModule>();
+            moduleCatalog.AddModule<EditTabRegionModule>();
         }
     }
 }
